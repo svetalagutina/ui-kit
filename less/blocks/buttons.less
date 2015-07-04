@@ -1,0 +1,72 @@
+
+.btn {
+	display: inline-block;
+	margin-bottom: 0; // For input.btn
+	font-weight: @btn-font-weight;
+	text-align: center;
+	vertical-align: bottom;
+	touch-action: manipulation;
+	cursor: pointer;
+	background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+	border: 1px solid transparent;
+	white-space: nowrap;
+	min-width: 130px;
+	text-decoration: none;
+	color: #fff;
+	font-family: @title-font-family;
+	font-size: 14px;
+	border-radius: 3px;
+	padding: 10px 40px;
+	box-sizing: border-box;
+
+  &--small{
+  	min-width: 100px;
+  	padding: 5px 20px;
+  }
+
+  &--green{
+	background-color: @color-green;
+	border-bottom: 4px solid darken(@color-green, 10%);
+
+	&:hover{
+		background-color: lighten(@color-green, 5%);
+		border-bottom: 4px solid darken(@color-green, 3%);
+	}
+
+	&:active{
+		border: 0;
+		background-color: darken(@color-green, 10%);
+	}
+  }
+
+  &--grey{
+	background-color: @color-grey;
+	border-bottom: 4px solid darken(@color-grey, 10%);
+
+	&:hover{
+		background-color: lighten(@color-grey, 5%);
+		border-bottom: 4px solid darken(@color-grey, 3%);
+	}
+
+	&:active{
+		border: 0;
+		background-color: darken(@color-grey, 10%);
+	}
+  }
+
+  &--red{
+	background-color: @color-red;
+	border-bottom: 4px solid darken(@color-red, 10%);
+
+	&:hover{
+		background-color: lighten(@color-red, 5%);
+		border-bottom: 4px solid darken(@color-red, 3%);
+	}
+
+
+	&:active{
+		border: 0;
+		background-color: darken(@color-red, 10%);
+	}
+  }
+}
