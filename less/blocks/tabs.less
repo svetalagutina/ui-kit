@@ -8,8 +8,9 @@
 }
 
 .tabs__caption{
-	
-	
+	padding-left: 0;
+	padding-bottom: 0;
+	margin-bottom: 0;
 
 	&__item{
 		display: inline-block;
@@ -17,12 +18,17 @@
 		border: 1px solid #dadada;
 		border-top-left-radius: 5px;
 		border-top-right-radius: 5px;
-		color: #fff;
-		background-color: #ccc;
+		border-bottom: 0;
+		color: #000;
+		background-color: #fff;
 	}
 
-	&.active {
-	display: block; 
+	&__item:hover{
+		cursor: pointer;
+	}
+
+	.active {
+	display: inline-block; 
 	padding: 10px 30px;
 	border: 1px solid #dadada;
 	border-top-left-radius: 5px;
@@ -38,9 +44,16 @@
 
 .tabs__content {
 	display: none; /* по умолчанию прячем все блоки */
-	
+	border-top: 1px solid #dadada; 
+	top: -1px;
+	position: relative;
+	color: #3f3f3f;
+	padding-top: 15px;
+	background-color: #fff;
+
 	&.active {
 	display: block; /* по умолчанию показываем нужный блок */
+	overflow: hidden;
 	}
 
 }
