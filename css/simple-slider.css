@@ -1,0 +1,25 @@
+.slider {
+  width: 100%;
+}
+
+
+.slider > .track, .slider > .highlight-track {
+  position: relative;
+  overflow: hidden;
+  height: 10px;
+  background-color: #e6e9ed;
+  border-radius: 10px;
+}
+
+.slider > .highlight-track:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fc6e51;
+  border-radius: 10px;
+}
+

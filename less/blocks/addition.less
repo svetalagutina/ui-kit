@@ -1,0 +1,43 @@
+.breadcrumb {
+	// padding: @breadcrumb-padding-vertical @breadcrumb-padding-horizontal;
+	margin-bottom: @line-height-computed;
+	list-style: none;
+	// background-color: @breadcrumb-bg;
+	// border-radius: @border-radius-base;
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 20px;
+	text-align: center;
+
+	img{
+		margin-right: 10px;
+		margin-left: -10px;
+	}
+
+	li a{
+		font-size: 15px;
+		color: #353535;
+	}
+
+	  > li {
+	    display: inline-block;
+		font-size: 15px;
+		color: #353535;
+		
+	    + li:before {
+			content: "@{breadcrumb-separator}\00a0"; // Unicode space added since inline-block means non-collapsing white-space
+			font-size: 15px;
+			color: #353535;
+		}
+	}
+}
+
+.jrate{
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 20px;
+
+	.jrate_text{
+		font-size: 15px;
+	}
+}

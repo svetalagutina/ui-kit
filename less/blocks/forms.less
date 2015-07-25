@@ -1,0 +1,557 @@
+/*иконки*/
+@font-face {
+font-family: 'Glyphicons Halflings';
+src: url('@{icon-font-path}@{icon-font-name}.eot');
+src: url('@{icon-font-path}@{icon-font-name}.eot?#iefix') format('embedded-opentype'),
+url('@{icon-font-path}@{icon-font-name}.woff2') format('woff2'),
+url('@{icon-font-path}@{icon-font-name}.woff') format('woff'),
+url('@{icon-font-path}@{icon-font-name}.ttf') format('truetype'),
+url('@{icon-font-path}@{icon-font-name}.svg#@{icon-font-svg-id}') format('svg');
+}
+
+.glyphicon {
+position: relative;
+top: 1px;
+display: inline-block;
+font-family: 'Glyphicons Halflings';
+font-style: normal;
+font-weight: normal;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-record { &:before { content: "\e165"; } }
+.glyphicon-ok { &:before { content: "\e013"; } }
+.glyphicon-remove { &:before { content: "\e014"; } }
+
+/*переменные*/
+@input-height-base:35px;
+@font-size-base:15px;
+@input-color:#3f3f3f;
+@input-border-radius:5px;
+@input-border:#ccc;
+
+//миксин для состояния инпута
+.form-input-validation(@color) {
+border: 2px solid @color;
+
+	& +.glyphicon {
+	color: @color;
+	}
+}
+
+/*---— бутстрап —---*/
+
+.form-control {
+	display: block;
+	width: 100%;
+	height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+	padding: @padding-base-vertical @padding-base-horizontal;
+	font-size: @font-size-base;
+	line-height: @line-height-base;
+	color: @input-color;
+	background-color: @input-bg;
+	background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+	border: 1px solid @input-border;
+	border-radius: @input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
+	.box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+	.transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+
+	// Customize the `:focus` state to imitate native WebKit styles.
+	.form-control-focus();
+
+	// Placeholder
+	.placeholder();
+
+
+	&[disabled],
+	&[readonly],
+	fieldset[disabled] & {
+	background-color: @input-bg-disabled;
+	opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+	}
+
+	&[disabled],
+	fieldset[disabled] & {
+	cursor: default;
+	}
+
+	// Reset height for `textarea`s
+	textarea& {
+	height: auto;
+	}
+}
+
+.radio,
+.checkbox {
+position: relative;
+display: block;
+margin-top: 10px;
+margin-bottom: 10px;
+
+	label {
+	min-height: @line-height-computed; // Ensure the input doesn't jump when there is no text
+	padding-left: 20px;
+	margin-bottom: 0;
+	font-weight: normal;
+	cursor: pointer;
+	}
+}
+
+.radio + .radio,
+.checkbox + .checkbox {
+margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
+}
+
+.has-feedback {
+// Enable absolute positioning
+position: relative;
+
+	// Ensure icons don't overlap text
+	.form-control {
+	padding-right: (@input-height-base * 1.25);
+	}
+}
+
+// Feedback icon (requires .glyphicon classes)
+.form-control-feedback {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2; // Ensure icon is above input groups
+	display: block;
+	width: @input-height-base;
+	height: @input-height-base;
+	line-height: @input-height-base;
+	text-align: center;
+	pointer-events: none;
+}
+
+.has-feedback label {
+
+	& ~ .form-control-feedback {
+	top: (@line-height-computed); // Height of the `label` and its margin
+	}
+	&.sr-only ~ .form-control-feedback {
+	top: 0;
+	}
+}
+
+/*основное*/
+/*inputs*/
+
+.form-input-wrapper {
+	background-color: #fff;
+	padding: 30px;
+	border-radius: 5px;
+
+
+	form {
+		width: 245px;
+	}
+
+	input[type=text] {
+		margin-bottom: 20px;
+	}
+
+	.form-group:last-of-type input {margin: 0;}
+
+	.has-success {
+	.form-input-validation(@color-green);
+	}
+	.has-error {
+	.form-input-validation(@color-red);
+	}
+}
+
+.form-steps{
+	background-color: #fff;
+	border-radius: 5px;
+	padding-top: 50px;
+	padding-bottom: 20px;
+	text-align: center;
+
+	.step-radio {
+	  display: none;
+	}
+	.step-radio:checked + .step-text:after {
+	  background-color: #fc6e51;
+	}
+	.step-radio:checked + .step-text ~ .step-text:after {
+	  background-color: #dfdfdf;
+	}
+	.step-radio:checked + .step-text ~ .step-line {
+	  background-color: #dfdfdf;
+	}
+	.step-radio:checked + .step-text ~ .step-line:after, .step-radio:checked + .step-text ~ .step-line:before {
+	  background-color: #dfdfdf;
+	}
+	.step-text {
+	  display: inline-block;
+	  position: relative;
+	  color: #797979;
+	}
+	.step-text:hover {
+	  cursor: pointer;
+	}
+	.step-text:after {
+	  content: '';
+	  display: block;
+	  position: absolute;
+	  width: 12px;
+	  height: 12px;
+	  background-color: #fc6e51;
+	  border-radius: 50%;
+	  top: -20px;
+	  left: 35%;
+	}
+	.step-line {
+	  display: inline-block;
+	  width: 35%;
+	  height: 2px;
+	  background-color: #fc6e51;
+	  vertical-align: top;
+	  position: relative;
+	  top: -15px;
+	}
+	.step-line:after, .step-line:before {
+	  content: '';
+	  background-color: #fc6e51;
+	  height: 2px;
+	  width: 30%;
+	  display: block;
+	  position: absolute;
+	}
+	.step-line:after {
+	  top: 0;
+	  left: -15px;
+	}
+	.step-line:before {
+	  top: 0;
+	  right: -15px;
+	}
+}
+
+.form-tags{
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 30px;
+}
+
+
+.form-select{
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 30px;
+	margin-top: 20px;
+
+
+	.custom-select-menu {
+		display: inline-block;
+		margin-bottom: 8px;
+		outline: none;
+		position: relative;
+	}
+
+	.custom-select-menu label {
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		display: inline-block;
+		font-weight: normal;
+		padding: 10px 32px 10px 10px;
+		position: relative;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;  
+		user-select: none;
+		width: 300px;
+		font-size: 15px;
+	}
+
+	.custom-select-menu label.selection-made {
+		color: #000;
+	}
+
+	.custom-select-menu label:after {
+		border-top: 10px solid #ccc;
+		border-right: 6px solid transparent;
+		border-left: 6px solid transparent;
+		content: '';
+		position: absolute;
+		right: 10px;
+		top: 16px;
+	}
+
+	.custom-select-menu label.opened:after{
+		display: none;
+	}
+
+	.custom-select-menu label.opened:before{
+		border-bottom: 10px solid #ccc;
+		border-right: 6px solid transparent;
+		border-left: 6px solid transparent;
+		content: '';
+		position: absolute;
+		right: 10px;
+		top: 16px;
+	} 
+
+	.custom-select-menu label.opened {
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	.custom-select-menu ul {
+		background: #fff;
+		border: 1px solid #ccc;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+		border-top: none;
+		left: 10px;
+		list-style: none;
+		margin: 0 -10px;
+		max-height: 200px;
+		// overflow-x: hidden;
+		// overflow-y: scroll; 
+		position: absolute;
+		top: 1px;
+		width: 300px; 
+		z-index: 2;
+		padding: 0;
+	}
+
+	.custom-select-menu  li {
+		background-color: #fff;
+		cursor: pointer;
+		padding: 7px 10px;
+	}
+
+	.custom-select-menu li:hover {
+		background-color: #FC6E51;
+		color: #fff;
+	}
+
+}
+
+
+
+.form-check-wrapper {
+	background-color: #fff;
+	border-radius: 5px;
+	width: 100%;
+	padding: 20px;
+}
+
+.form-radio {
+
+	p {
+		margin: 5px 0;
+		font-size: 15px;
+	}
+
+	.radio {
+		vertical-align: top;
+		width: 16px;
+		height: 16px;
+		margin: 0 0 0 0;
+	}
+
+	.radio + label {
+		cursor: pointer;
+	}
+
+	.radio:not(checked) {
+		position: absolute;
+		opacity: 0;
+	}
+
+	.radio:not(checked) + label {
+		position: relative;
+		padding: 0 0 0 25px;
+	}
+
+	.radio:not(checked) + label:before {
+		content: '';
+		position: absolute;
+		top: -1px;
+		left: 1px;
+		width: 13px;
+		height: 13px;
+		border: 1px solid #ccc;
+		border-radius: 50%;
+		background: #FFF;
+	}
+
+	.radio:not(checked) + label:after {
+		content: '\e165';
+		font-family: 'Glyphicons Halflings';
+		position: absolute;
+		top: -1px;
+		left: 1px;
+		width: 16px;
+		height: 16px;
+		border: none;
+		font-size: 16px;
+		opacity: 0;
+		transition: all .2s;
+		color: @color-red;
+	}
+
+	.radio:checked + label:after {
+		opacity: 1;
+	}
+
+	.radio:checked + label:before {
+		opacity: 0;
+	}
+
+	.disabled +label{
+		cursor:default;
+		color: #ccc;
+	}
+}
+
+
+.form-checkbox {
+	width: 100%;
+	margin-top: 5px;
+
+	*, *:before, *:after {box-sizing: border-box;}
+
+	p{
+		margin: 5px 0;
+		font-size: 15px;
+	}
+
+	.check {
+		vertical-align: top;
+		margin: 0 3px 0 0;
+		width: 17px;
+		height: 17px;
+	}
+
+	.check + label {
+		cursor: pointer;
+	}
+
+	.disabled + label{
+		cursor:default;
+		color: #ccc;
+	}
+
+	.check:not(checked) {
+		position: absolute;
+		opacity: 0;
+	}
+
+	.check:not(checked) + label {
+		position: relative; 
+		padding: 0 0 0 25px;
+	}
+
+	/* Оформление первой части чекбокса в выключенном состоянии (фон). */
+	.check:not(checked) + label:before {
+		content: '';
+		position: absolute;
+		top:0px;
+		left: 0px;
+		width: 15px;
+		height: 15px;
+		border-radius: 5px;
+		border: 1px solid #ccc;
+		}
+
+	.check:checked + label:before {
+		border: 2px solid @color-red;
+	}
+
+	.check:checked + label:after {
+		content: '\e013';
+		font-family: 'Glyphicons Halflings';
+		position: absolute;
+		top: 2px;
+		left: 3px;
+		font-size: 10px;
+		color: @color-red;
+	}
+}
+
+
+
+
+
+.form-switch {
+	width: 100%;
+	margin-top: 10px;
+
+	p{
+		margin: 5px 0;
+		font-size: 15px;
+	}
+}
+.checkbox {
+	vertical-align: top;
+	margin: 0 3px 0 0;
+	width: 17px;
+	height: 17px;
+
+	& + label {
+		cursor: pointer;
+	}
+	
+	&:not(checked) {
+		position: absolute;
+		opacity: 0;
+	}
+
+	&:not(checked) + label {
+	  position: relative; 
+	  padding: 0 0 0 40px; 
+	}
+
+	&:not(checked) + label:before {
+	  content: '';
+	  position: absolute;
+	  top: 2px;
+	  left: 0;
+	  width: 30px;
+	  height: 15px;
+	  border-radius: 13px;
+	  background: #CDD1DA;
+	 
+	}
+
+	&:not(checked) + label:after {
+	  content: '';
+	  position: absolute;
+	  top: 3px;
+	  left: 2px;
+	  width: 12px;
+	  height: 12px;
+	  border-radius: 10px;
+	  background: #FFF;
+	  transition: all .2s; 
+	}
+
+	&:checked + label:before {
+	  background: #9FD468;
+	}
+
+	&:checked + label:after {
+	  left: 16px;
+	}
+
+}
+
+
+.disabled + label {
+	cursor: default;
+	color: #ccc;
+}
+
+input[disabled] + label:after {
+  background-color: #f8f8f8;
+}
+

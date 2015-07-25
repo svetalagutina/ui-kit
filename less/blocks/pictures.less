@@ -11,29 +11,49 @@
 
 
 .img-zoom {
-overflow: hidden;
-position: relative;
-z-index: 2;
-transition: all .4s;
-width: 260px;
-height: 265px;
+	overflow: hidden;
+	position: relative;
+	z-index: 2;
+	transition: all .4s;
+	width: 260px;
+	height: 265px;
 
 	&:before{
-	content: '';
-	display: block;
-	background:url(../pict/zoom.png) center center no-repeat #000;
-	cursor: pointer;
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	z-index: 10;
-	opacity: 0;
-	transition: all .4s;
+		content: '';
+		display: block;
+		background: #000;
+		cursor: pointer;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		z-index: 10;
+		opacity: 0;
+		transition: all .4s;
 	}
 
 	&:hover:before{
-	opacity: .7;
-	border-radius: 5px;
+		opacity: .7;
+		border-radius: 5px;
+	}
+
+	&:after{
+		content: '';
+		position: absolute;
+		display: block;
+		background:url(../pict/zoom.png) center center no-repeat;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		vertical-align: middle;
+		text-align: center;
+		opacity: 0;
+		z-index: 11;
+		
+	}
+
+	&:hover:after{
+		opacity: 1;
+		border-radius: 5px;
 	}
 }
 
@@ -86,7 +106,7 @@ height: 265px;
 		width: 100%;
 		height: 100%;
 		transform-style: preserve-3d;
-		transition: all 1.0s linear;
+		transition: all 0.5s linear;
   	}
 	
 	&:hover &__container{
@@ -111,12 +131,12 @@ height: 265px;
 		margin: 0 auto;
 		border-radius: 5px;
 		border: 1px solid #ccc;
+		background-color: #fff;
 	}
 	&__text{
 		position: absolute;
 		text-align: center;
-		padding: 10px;
-		background-color: #fff;
+		padding: 30% 20px;
 		color: #aaa;
 	}
 }

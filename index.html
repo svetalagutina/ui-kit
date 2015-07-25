@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>UI kit</title>
-   <link rel="stylesheet" href="css/style.css">
-   <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,900&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-   <link rel="stylesheet" href="css/owl.carousel.css">
+	<meta charset="UTF-8">
+	<title>UI kit</title>
+	 <link rel="stylesheet" href="css/style.css">
+	 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,900&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	 <link rel="stylesheet" href="css/owl.carousel.css">
+	 <link rel="stylesheet" href="css/bootstrap-tagsinput.css">
+	 <link rel="stylesheet" href="css/simple-slider.css">
+	 <link rel="stylesheet" href="css/nouislider.css">
 </head>
 <body>
 
@@ -118,8 +121,8 @@
 								<img src="pict/table.jpg" alt="">
 							</div>
 							<div class="img-flip__back">
-    							<p class="img-flip__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, maiores.</p>
-  							</div>
+									<p class="img-flip__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, maiores.</p>
+								</div>
 						</div>
 					</div>
 				</div>
@@ -181,17 +184,273 @@
 
 	<section class="forms">
 		<div class="forms__inner">
+
 			<h1 class="header-underline">Формы</h1>
 			<div class="row">
-				<div class="col-xs-4"></div>
+				<div class="col-xs-4">
+					<div class="form-input-wrapper">
+						<form action="">
+							<div class="form-group has-feedback">
+								<input type="text" class="form-control" placeholder="Полковнику никто не пишет" />
+							</div>
+							
+							<div class="form-group has-feedback">
+								<input type="text" class="form-control" placeholder="Пишет!"/>
+							</div>
+
+							<div class="form-group has-feedback">
+								<input type="text" class="form-control has-error" value="Но не то"/>
+								<i class="form-control-feedback glyphicon glyphicon-remove"></i>
+							</div>
+
+							<div class="form-group has-feedback">
+								<input type="text" class="form-control has-success" value="А, нет, все правильно"/>
+								<i class="form-control-feedback glyphicon glyphicon-ok"></i>
+							</div>
+			
+						</form>
+					</div>	
+				</div>
+
+				<div class="col-xs-4">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="form-tags">
+								<form action="">
+									<input type="text" value="Быстрее,Выше,Sydney" data-role="tagsinput">
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="form-select">
+								<form action="">
+									<select name="color-menu" id="my-color-menu">
+										<option>Выпадающий список</option>
+										<option value="red">Red</option>
+										<option value="green">Green</option>
+										<option value="blue">Blue</option>
+									</select>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-3">
+					<div class="form-check-wrapper">
+						<div class="row">
+
+							<div class="col-xs-6">
+								<div class="form-radio">
+									<form action="">
+									<p><input type="radio" id="radio1" class="radio form-control disabled" name="radio-name" disabled>
+									<label for="radio1" class="control-label">Lorem ipsum.</label></p>
+
+									<p><input type="radio" id="radio2" class="radio form-control" name="radio-name" checked>
+									<label for="radio2" class="control-label">Lorem ipsum.</label></p>
+
+
+									<p><input type="radio" id="radio3" class="radio form-control" name="radio-name" >
+									<label for="radio3" class="control-label">Lorem ipsum.</label></p>
+
+									<!-- <!— <div class="form-group has-feedback">
+									<label class="control-label">Username</label>
+									<input type="text" class="form-control" placeholder="Username" />
+									<i class="form-control-feedback glyphicon glyphicon-ok"></i>
+									</div>
+									—> -->
+									</form>
+								</div>
+							</div>
+
+							<div class="col-xs-6">
+								<div class="form-checkbox">
+									<form action="">
+										<p><input type="checkbox" class="check disabled" id="check1" disabled="true"/>
+										<label for="check1">Lorem</label></p>
+
+										<p><input type="checkbox" class="check" id="check2" checked/>
+										<label for="check2">Lorem</label></p>
+
+										<p><input type="checkbox" class="check" id="check3"/>
+										<label for="check3">Lorem</label></p>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-switch">
+									<form action="">
+
+										<p><input type="checkbox" class="checkbox disabled" id="checkbox1" disabled="true"/>
+										<label for="checkbox1">Lorem</label></p>
+
+										<p><input type="checkbox" class="checkbox" id="checkbox2" checked/>
+										<label for="checkbox2">Lorem</label></p>
+
+										<p><input type="checkbox" class="checkbox" id="checkbox3" />
+										<label for="checkbox3">Lorem</label></p>
+									</form>
+								</div>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<section class="formspro">
+		<div class="formspro__inner">
+
+			<h1 class="header-underline">Продвинутые формы</h1>
+
+			<div class="row">
+				<div class="col-xs-7">
+					<div class="form-steps">
+
+						<input type="radio" class="step-radio" id="step1" name="step-radio" checked>
+						<label for="step1" class="step-text">Шаг 1</label>
+
+						<div class="step-line"></div>
+
+						<input type="radio" class="step-radio" id="step2" name="step-radio">
+						<label for="step2" class="step-text">Шаг 2</label>
+
+						<div class="step-line"></div>
+						<input type="radio" class="step-radio" id="step3" name="step-radio">
+						<label for="step3" class="step-text">Шаг 3</label>
+					</div>
+				</div>
+
+				<div class="col-xs-4">
+					<div class="form-nouislider">
+						<div id="nouislide">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-5">
+					<div class="form-range">
+						<input type="text" value="40" data-slider="true" data-slider-highlight="true" data-slider-range="0,100" >
+					</div>
+				</div>
+
+				<div class="col-xs-4">
+					<div class="form-segment">
+						<select class="segment-select">
+							<option value="1">Выбрано</option>
+							<option value="2">Не выбрано</option>
+						</select>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
 
+	<section class="addition">
+		<div class="addition__inner">
 
+			<h1 class="header-underline">Дополнительно</h1>
+			
+			<div class="row">
+				<div class="col-xs-3">
+						<div class="menu_inner" id="accordion">
+							<ul class="submenu__list">
+								<span class="menu-header">Входящие сообщения</span>
+								<li class="menu__item">
+									<a href="" class="menu__link">
+									<img src="pict/mail.png" alt="">Новые</a>
+									<div class="menu__number"><span>32</span></div>
+								</li>
+
+								<li class="menu__item">
+									<a href="" class="menu__link">
+									<img src="pict/impor.png" alt="">Важные</a>
+									<div class="menu__number"><span>6</span></div>
+								</li>
+
+								<li class="menu__item">
+									<a href="" class="menu__link">
+									<img src="pict/work.png" alt="">Работа</a>
+									<div class="menu__number"><span>4</span></div>
+
+										<ul class="submenu__list">
+											<li class="submenu__item">
+												<a href="" class="submenu__link">Забота</a>
+												<div class="submenu__number"><span>1</span></div>
+											</li>
+											<li class="submenu__item">
+												<a href="" class="submenu__link">Зевота</a>
+												<div class="submenu__number"><span>2</span></div>
+											</li>
+									</ul>
+								</li>
+
+								<li class="menu__item">
+									<a href="" class="menu__link">
+									<img src="pict/spam.png" alt="">Почта</a>
+									<!-- <div class="menu__number"><span></span></div> -->
+								</li>
+
+								<li class="menu__item">
+									<a href="" class="menu-show-all">Показать все</a>
+									<!-- <div class="menu__number"><span></span></div> -->
+								</li>
+
+							</ul>
+						</div>
+				</div>
+
+				<div class="col-xs-4">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="breadcrumb">
+								<img src="pict/bread-img.png" alt="">
+								<li><a href="">Чем дальше в лес</a></li>
+								<li><a href="">Тем больше</a></li>
+								<li>Дров</li>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-9">
+							<div class="jrate">
+
+								<div class="row">
+									<div class="col-xs-4">
+										<div class="jrate_text">Оцените:</div>
+									</div>
+									<div class="col-xs-8">
+										<div id="jRate"></div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
 
 	<script src="scripts/jquery-1.9.1.min.js"></script>
 	<script src="scripts/owl.carousel.js"></script>
+	<script src="scripts/bootstrap-tagsinput.js"></script>
+	<script src="scripts/custom-select-menu.jquery.js"></script>
+	<script src="scripts/segment.js"></script>
+	<script src="scripts/jRate.js"></script>
+	<script src="scripts/simple-slider.js"></script>
+	<script src="scripts/nouislider.min.js"></script>
+	<script src="scripts/wNumb.min.js"></script>
 
 	<script>
 	$(document).ready(function(){
@@ -210,15 +469,130 @@
 		(function($) {
 			$(function() {
 
-			  $('ul.tabs__caption').on('click', 'li:not(.active)', function() {
-			    $(this)
-			      .addClass('active').siblings().removeClass('active')
-			      .closest('div.tabs').find('div.tabs__content').removeClass('active').eq($(this).index()).addClass('active');
-			  });
+				$('ul.tabs__caption').on('click', 'li:not(.active)', function() {
+					$(this)
+						.addClass('active').siblings().removeClass('active')
+						.closest('div.tabs').find('div.tabs__content').removeClass('active').eq($(this).index()).addClass('active');
+				});
 
 			});
 			})(jQuery);
 	</script>
+
+	// <script>
+	// 	$("input").val();
+	// </script>
+
+	<script>
+		$('#my-color-menu').customSelectMenu();
+	</script>
+
+	<script>
+		$(".segment-select").Segment();
+	</script>
+
+	<script>
+		$("#jRate").jRate({
+		startColor: 'yellow',
+		endColor: 'yellow',
+		backgroundColor: '#ccc',
+		width: 25,
+		height: 15,
+		rating:4
+		});
+	</script>
+
+	<script>
+		$('.menu__item').on('click', function(e){
+		e.preventDefault();
+		$(this).closest('li').children('.submenu__list').slideToggle();
+		});
+	</script>
+
+	<script>
+		var connectSlider = document.getElementById('nouislide');
+
+		noUiSlider.create(connectSlider, {
+		start: [4000, 11000],
+		connect: false,
+		range: {
+		'min': 0,
+		'max': 15000
+		},
+		format: wNumb({
+		mark: false,
+		thousand: ' ',
+		postfix: 'Р',
+		})
+		});
+
+		var connectBar = document.createElement('div'),
+		connectBase = connectSlider.getElementsByClassName('noUi-base')[0],
+		connectHandles = connectSlider.getElementsByClassName('noUi-origin');
+
+		// Give the bar a class for styling and add it to the slider.
+		connectBar.className += 'connect';
+		connectBase.appendChild(connectBar);
+
+		connectSlider.noUiSlider.on('update', function( values, handle ) {
+
+		// Pick left for the first handle, right for the second.
+		var side = handle ? 'right' : 'left',
+		// Get the handle position and trim the '%' sign.
+		offset = (connectHandles[handle].style.left).slice(0, - 1);
+
+		// Right offset is 100% - left offset
+		if ( handle === 1 ) {
+		offset = 100 - offset;
+		}
+
+		connectBar.style[side] = offset + '%';
+		});
+
+		var tipHandles = connectSlider.getElementsByClassName('noUi-handle'),
+		tooltips = [];
+
+		// Add divs to the slider handles.
+		for ( var i = 0; i < tipHandles.length; i++ ){
+		tooltips[i] = document.createElement('div');
+		tipHandles[i].appendChild(tooltips[i]);
+		}
+
+		// Add a class for styling
+		tooltips[1].className += 'tooltip';
+		// Add additional markup
+		tooltips[1].innerHTML = '<span></span>';
+		// Replace the tooltip reference with the span we just added
+		tooltips[1] = tooltips[1].getElementsByTagName('span')[0];
+
+		// Add a class for styling
+		tooltips[0].className += 'tooltip';
+		// Add additional markup
+		tooltips[0].innerHTML = '<span></span>';
+		// Replace the tooltip reference with the span we just added
+		tooltips[0] = tooltips[0].getElementsByTagName('span')[0];
+
+		// When the slider changes, write the value to the tooltips.
+		connectSlider.noUiSlider.on('update', function( values, handle ){
+		tooltips[handle].innerHTML = values[handle];
+		});
+	</script>
+
+	<script>
+		$("[data-slider]")
+		.each(function () {
+			var input = $(this);
+			$("<span>")
+				.addClass("output")
+				.insertAfter($(this));
+		})
+		.bind("slider:ready slider:changed", function (event, data) {
+			$(this)
+				.nextAll(".output:first")
+					.html(data.value.toFixed(0));
+		});
+	</script>
+
 </body>
 </html>
 
